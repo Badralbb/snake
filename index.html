@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <style>
+        .area {
+            background-color: black;
+            position: relative;
+        }
+
+        .snake-head {
+            width: 20px;
+            height: 20px;
+            background-color: green;
+            position: absolute;
+            display: none;
+            top: 300px;
+        }
+
+        body {
+            width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body onkeydown="handleKeyDown(event)">
+    <div class="area" id="area">
+        <div id="snake-head" class="snake-head"></div>
+    </div>
+<button onclick="changeDirection('left')">left</button>
+<button onclick="changeDirection('up')">top</button>
+<button onclick="changeDirection('down')">down</button>
+<button onclick="changeDirection('right')">right</button>
+    <script src="snake.js"></script>
+
+</body>
+
+</html>
