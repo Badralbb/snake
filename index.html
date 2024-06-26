@@ -8,28 +8,40 @@
     <style>
         .area {
             background-color: black;
-            position: relative;
+            position: relative;overflow: hidden;
         }
 
-        .snake-head {
-            width: 20px;
-            height: 20px;
-            background-color: green;
-            position: absolute;
-            display: none;
-            top: 300px;
-        }
-
+       #snake-body{
+        position: absolute;top: 0;
+       }
+       
         body {
             width: 600px;
             margin: auto;
+        }
+   
+        #food{
+            border-radius: 20px;width: 20px;height: 20px;background-color: red;
+            position: absolute;
+        }
+        .snake-core{
+            width: 20px;height: 20px;background-color: green;border-radius: 5px;
+            position: absolute;
         }
     </style>
 </head>
 
 <body onkeydown="handleKeyDown(event)">
     <div class="area" id="area">
-        <div id="snake-head" class="snake-head"></div>
+        <div id="food"></div>
+       
+           
+        </div>
+        <div id="snake-body">
+            
+        </div>
+       
+    
     </div>
 <button onclick="changeDirection('left')">left</button>
 <button onclick="changeDirection('up')">top</button>

@@ -1,13 +1,19 @@
-const head = document.getElementById("snake-head");
+
 const area = document.getElementById("area");
+const body = document.getElementById("snake-body");
 const scale = 20;
 const areaWidth = 30;
 const areaHeight = 25;
 let positionX = 5;
 let positionY = 5;
-let direction = "up";
-let speed = 400;
-function goRight() {
+const foodat = document.getElementById("food");
+let direction = "right";
+let speed = 150;
+const bodyCoordinates = [{x:5,y:5},{x:6,y:5},{x:7,y:5},{x:8,y:5}];
+const food = {
+x:5,y:5
+}
+const goRight = () => {
     positionX += 1;
     if (positionX > areaWidth - 1) {
         positionX = 0;
@@ -15,27 +21,51 @@ function goRight() {
 
 
 }
-function render() {
+const eatFood = () =>{
+   
+    render();
+}
+    
 
-    head.style.left = `${positionX * scale}px`
-    head.style.top = `${positionY * scale}px`
+const render = () => {
+    let bodyHtml = ""
+    if(food.x == positionX && food.y == positionY){
+        bodyCoordinates.unshift(bodyCoordinates[0]);
+        speed = speed - 20;
+        food.x = Math.floor(Math.random() * scale);
+        food.y = Math.floor(Math.random() * scale);
+        foodat.style.left =`${food.x * scale}px` 
+        foodat.style.top = `${food.y * scale}px`
+    }
+    for(let i = 0; i < bodyCoordinates.length; i++){
+        bodyHtml +=`<div class="snake-core" style="top:${bodyCoordinates[i].y * scale}px;left:${bodyCoordinates[i].x * scale}px"></div>`
+        
+  
+  }
+  body.innerHTML = bodyHtml;
+
+   foodat.style.left =`${food.x * scale}px` 
+    foodat.style.top = `${food.y * scale}px`
+    
+    
+
 
 }
-function goLeft() {
+const goLeft = () => {
     positionX -= 1;
     if (positionX < 0) {
         positionX = areaWidth - 1;
     }
 
 }
-function goUp() {
+const goUp = () => {
     positionY -= 1;
     if (positionY < 0) {
         positionY = areaHeight - 1;
     }
 
 }
-function goDown() {
+const  goDown = () => {
     positionY += 1;
     if (positionY > areaHeight - 1) {
         positionY = 0;
@@ -43,13 +73,13 @@ function goDown() {
 
 }
 
-function resetGame() {
+const resetGame = () => {
     area.style.width = `${areaWidth * scale}px`
     area.style.height = `${areaHeight * scale}px`
-    head.style.display = "block";
+    
     render();
 }
-function changeDirection(value) {
+const changeDirection = value => {
     if (direction == 'up' || direction == 'down') {
         if (value == 'left' || value == 'right') {
             direction = value;
@@ -60,7 +90,7 @@ function changeDirection(value) {
         }
     }
 }
-function handleKeyDown(event) {
+const  handleKeyDown = event => {
     switch (event.key) {
         case 'w':
         case 'ArrowUp':
@@ -80,7 +110,7 @@ function handleKeyDown(event) {
             break;
     }
 }
-function gameloop() {
+const gameloop = () => {
     switch (direction) {
         case 'up': goUp();
             break;
@@ -91,6 +121,8 @@ function gameloop() {
         case 'left': goLeft();
         break;
     }
+    bodyCoordinates.shift();
+    bodyCoordinates.push({x:positionX,y:positionY});
     render();
 }
 resetGame();
