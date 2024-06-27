@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .moveButtons {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+  }
+  #button {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    height: 300px;
+    margin: auto;
+  }
+  #right-left-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  #right-left-buttons > * {
+    width: 100px;
+    height: 100px;
+  }
+  .basic {
+    background-image: url("https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3906251.jpg&sp=1719412864T5343056a5e51da0abba04d32f39d255fde52ac6cd437707f40014e0308147880");
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+  }
+  .startButton {
+    width: 100px;
+    padding: 20px 10px;
+    opacity: 0.5;
+    background-color: aliceblue;
+    border-radius: 30px;
+  }
+  .startButton-lvl {
+    width: 150px;
+    padding: 20px 10px;
+    opacity: 0.5;
+    background-color: aliceblue;
+    border-radius: 30px;
+  }
