@@ -50,3 +50,9 @@
     background-color: aliceblue;
     border-radius: 30px;
   }
+  #score{
+    font-size: 30px;text-align: center;align-content: center;
+  }
+  #back-button{
+        position: absolute;transform: translate(-250px);border-radius: 20px;font-size: 30px;
+  }
